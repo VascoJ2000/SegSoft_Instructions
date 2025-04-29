@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="result"></div>
+
+  <script type="javascript">
+    // Handle redirect back with the code
+    window.onload = async function() {
+    const params = new URLSearchParams(window.location.search);
+    const code = params.get('code');
+    const returnedState = params.get('state');
+
+    if (code) {
+      document.getElementById('result').innerText = `Received Authorization Code: ${code}`;
+
+      // Exchange authorization code for access token
+      const response = await fetch(`${authServer}/Oauth/token`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          grant_type: 'authorization_code',
+          code: code,
+          client_id: clientId,
+        })
+      });
+
+      const data = await response.json();
+      console.log(data);
+
+      document.getElementById('result').innerText += `\nAccess Token: ${data.token}`;
+    }else{
+      console.log("No code");
+    }
+  };
+  </script>
+</body>
+</html>
