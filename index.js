@@ -22,7 +22,7 @@ document.getElementById('clientBtn').onclick = async function() {
       body: JSON.stringify({
         name: clientId,
         secret: secret,
-        redirectUri: redirectUri.href,
+        redirectUri: redirectUri.href + '/callback.html',
       })
   });
 
