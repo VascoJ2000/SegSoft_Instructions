@@ -97,8 +97,8 @@ window.onload = async function() {
         body: JSON.stringify({
           grant_type: 'authorization_code',
           code: code,
+          redirect_uri: url,
           client_id: clientId,
-          client_secret: secret,
         })
       });
 
