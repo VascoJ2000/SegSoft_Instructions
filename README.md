@@ -4,7 +4,7 @@ Client can be found [here](https://vascoj2000.github.io/SegSoft_Instructions/)
 
 ## Working with the Server
 
-Make sure the server is not sleeping by using this [link](https://segsoft-server.onrender.com/)
+Make sure the server is not sleeping by using this [link](https://segsoft-server.onrender.com/).
 Once it shows "Server active! Pls use a client to connect" it should be good to go for 50 mins.
 
 ### 0. Endpoints
@@ -51,6 +51,10 @@ Where:
 
 You shouldn't use fetch here, send user directly to link.
 
+You will receive back a: redirectUri??code=CODE&state=STATE
+
+Which then u can use on the next step
+
 #### 0.4 /Oauth/token
 
 ***Request***
@@ -64,6 +68,8 @@ content-type: application/json
   "client_id": clientId,
 }
 ```
+
+This will return you the token in a json file as "token".
 
 ### 1. Register you Client
 
