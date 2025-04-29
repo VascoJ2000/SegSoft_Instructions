@@ -91,7 +91,8 @@ window.onload = async function() {
       const response = await fetch(`https://authorization-server-70665-70715.onrender.com/token`, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'authorization': 'Basic 70140_70481:CB2C7B60537C6F19CA265A93D52C3B779401807D07FA77B921DC91B2BBF118BE (Base64)'
         },
         body: JSON.stringify({
           grant_type: 'authorization_code',
