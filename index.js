@@ -1,7 +1,7 @@
 const url = window.location;
 const secret = 'CB2C7B60537C6F19CA265A93D52C3B779401807D07FA77B921DC91B2BBF118BE';
 const clientId = '70140_70481';
-const authServer = 'http://localhost:4000';
+const authServer = 'https://segsoft-server.onrender.com';
 
 // --- Configuration ---
 const redirectUri = url;
