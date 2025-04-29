@@ -51,7 +51,11 @@ Where:
 
 You shouldn't use fetch here, send user directly to link.
 
-You will receive back a: redirectUri??code=CODE&state=STATE
+You will receive back a: redirectUri?code=CODE&state=STATE
+
+* redirectUri is your URL
+* code is the authorization code
+* state can be ignore, it is a check for csrf attacks
 
 Which then u can use on the next step
 
@@ -68,6 +72,10 @@ content-type: application/json
   "client_id": clientId,
 }
 ```
+
+* grant_type should be authorization_code
+* code is the code you just received
+* client_id is your client id (again, just to confirm nothing weird is happening)
 
 This will return you the token in a json file as "token".
 
@@ -90,18 +98,17 @@ Using the code just received, send it to the endpoint /Oauth/token to finally re
 
 ## Working with the client
 
-### 0. Options
-
-#### 0.1. Change your Client ID
-
-#### 0.2. Change your Secret
-
-#### 0.3. Change your Server
-
 ### 1. Authorize and Login
 
 Click one of the Oauth buttons and insert the user credentials
 
-### 2. Results
+* Our server
+* 70665-70715 server
+
+### 2. Register
+
+Allows to register a new user (only on our server).
+
+### 3. Results
 
 After login users can see authorization code and token in the bottom of the page
