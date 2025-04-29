@@ -1,5 +1,7 @@
 # 70140_70481 Software Security Project Guide
 
+Client can be found [here] (index.html)
+
 ## Working with the Server
 
 ### 0. Endpoints
