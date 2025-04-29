@@ -4,6 +4,9 @@ Client can be found [here](https://vascoj2000.github.io/SegSoft_Instructions/)
 
 ## Working with the Server
 
+Make sure the server is not sleeping by using this [link](https://segsoft-server.onrender.com/)
+Once it shows "Server active! Pls use a client to connect" it should be good to go for 50 mins.
+
 ### 0. Endpoints
 
 #### 0.1 /api/auth/register
