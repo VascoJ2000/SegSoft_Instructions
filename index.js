@@ -66,7 +66,7 @@ window.onload = async function() {
   if (code) {
     document.getElementById('result').innerText = `Received Authorization Code: ${code}`;
 
-    const Oauth = localStorage.get("Oauth");
+    const Oauth = localStorage.getItem("Oauth");
     if(Oauth == "70140_70481"){
       // Exchange authorization code for access token
       const response = await fetch(`${authServer}/Oauth/token`, {
