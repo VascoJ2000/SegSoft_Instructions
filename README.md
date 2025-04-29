@@ -1,6 +1,6 @@
 # 70140_70481 Software Security Project Guide
 
-Client can be found [here](index.html)
+Client can be found [here](https://vascoj2000.github.io/SegSoft_Instructions/)
 
 ## Working with the Server
 
