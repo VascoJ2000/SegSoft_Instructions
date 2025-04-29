@@ -93,7 +93,6 @@ window.onload = async function() {
         headers: {
           'Content-Type': 'application/json',
           'authorization': 'Basic 70140_70481:CB2C7B60537C6F19CA265A93D52C3B779401807D07FA77B921DC91B2BBF118BE (Base64)',
-          'Access-Control-Allow-Origin': 'https://authorization-server-70665-70715.onrender.com/token'
         },
         body: JSON.stringify({
           grant_type: 'authorization_code',
