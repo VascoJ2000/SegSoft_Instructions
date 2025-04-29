@@ -105,7 +105,7 @@ window.onload = async function() {
       const data = await response.json();
       console.log(data);
 
-      document.getElementById('result').innerText += `\nAccess Token: ${data.token}`;
+      document.getElementById('result').innerText += `\nAccess Token: ${data.access_token}\nRefresh Token: ${data.refresh_token}`;
     }
   }else{
     console.log("No code");
