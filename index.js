@@ -10,8 +10,15 @@ const scope = 'default';
 const state = Math.random().toString(36).substring(2); // Random string for security
 
 document.getElementById('ourOauth').onclick = function() {
+  localStorage.setItem("Oauth", "70140_70481");
   const authEndpoint = authServer + '/Oauth/authorize';
   const authUrl = `${authEndpoint}?response_type=${responseType}&client_id=${clientId}&scope=${encodeURIComponent(scope)}&state=${state}`;
+  window.location.href = authUrl;
+};
+
+document.getElementById('70665-70715_Oauth').onclick = function() {
+  localStorage.setItem("Oauth", "70665-70715");
+  const authUrl = 'https://authorization-server-70665-70715.onrender.com/authorize?client_id=70140_70481&redirect_uri=https://vascoj2000.github.io/SegSoft_Instructions/&response_type=code&scope=profile';
   window.location.href = authUrl;
 };
 
@@ -55,28 +62,50 @@ document.getElementById('registerBtn').onclick = async function() {
 window.onload = async function() {
   const params = new URLSearchParams(window.location.search);
   const code = params.get('code');
-  const returnedState = params.get('state');
 
   if (code) {
     document.getElementById('result').innerText = `Received Authorization Code: ${code}`;
 
-    // Exchange authorization code for access token
-    const response = await fetch(`${authServer}/Oauth/token`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        grant_type: 'authorization_code',
-        code: code,
-        client_id: clientId,
-      })
-    });
+    const Oauth = localStorage.get("Oauth");
+    if(Oauth == "70140_70481"){
+      // Exchange authorization code for access token
+      const response = await fetch(`${authServer}/Oauth/token`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          grant_type: 'authorization_code',
+          code: code,
+          client_id: clientId,
+        })
+      });
 
-    const data = await response.json();
-    console.log(data);
+      const data = await response.json();
+      console.log(data);
 
-    document.getElementById('result').innerText += `\nAccess Token: ${data.token}`;
+      document.getElementById('result').innerText += `\nAccess Token: ${data.token}`;
+
+    }else if(Oauth == "70665-70715"){
+      // Exchange authorization code for access token
+      const response = await fetch(`https://authorization-server-70665-70715.onrender.com/token`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          grant_type: 'authorization_code',
+          code: code,
+          client_id: clientId,
+          client_secret: secret,
+        })
+      });
+
+      const data = await response.json();
+      console.log(data);
+
+      document.getElementById('result').innerText += `\nAccess Token: ${data.token}`;
+    }
   }else{
     console.log("No code");
   }
